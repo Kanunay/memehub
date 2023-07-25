@@ -1,11 +1,14 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
-            MEMEHUB
-        </a>
+    <div class="container-fluid">
+            <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                <img class="navbar-brand container-fluid p-0 m-0" src="{{ asset('images/logo-v1.png') }}"  style="width:110px; height:10%;" alt="{{ asset('images/no-image.png') }}">
+            </a>
+            <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
+                Create Post
+            </a>
 
         <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto px-5">
             <!-- Authentication Links -->
             @guest
                 @if (Route::has('login'))
