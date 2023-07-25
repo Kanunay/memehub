@@ -9,6 +9,20 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+                    @guest
+                    {{-- Welcome back Administrator --}}
+                    @php
+                    $role_as_lol = Auth::user()->role_as; 
+                    @endphp
+                    <script>
+                        // Check the PHP variable value and show the alert if it meets a certain condition
+                        @if($role_as_lol == '1')
+                            alert("Wecome back Administrator!");
+                            @else
+                            {{ __('Welcome back!') }}
+                        @endif
+                    </script>
+                    @endguest
 
 
 
