@@ -1,7 +1,7 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <div class="container-fluid">
+<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0 m-0">
+    <div class="container-fluid p-0 m-0">
             <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
-                <img class="navbar-brand container-fluid p-0 m-0" src="{{ asset('images/logo-v1.png') }}"  style="width:110px; height:10%;" alt="{{ asset('images/no-image.png') }}">
+                <img class="navbar-brand container-fluid p-0 m-0" src="{{ asset('images/logo-v1.png') }}"  class="me-2" height="70" alt="{{ asset('images/no-image.png') }}">
             </a>
             <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
                 Create Post
@@ -28,14 +28,17 @@
                 @php
                     $role = Auth::user()->role_as;
                 @endphp
-                @if ($role == 0)
+                @if ($role == "")
+                    <span class="nav-item nav-text">Guest</span>
+                @elseif ($role == 0)
                     <span class="nav-item nav-text">User</span>
-                @else
+                @elseif ($role == 1)
                     <span class="nav-item nav-text">Admin</span>
                 @endif
+                    
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link">{{ Auth::user()->name }}</a>
+                    <h2><a class="nav-link">{{ Auth::user()->name }}</a></h2>
                 </li>
 
                 {{-- New logout --}}
