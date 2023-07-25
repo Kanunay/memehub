@@ -3,6 +3,7 @@
             <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
                 <img class="navbar-brand container-fluid p-0 m-0" src="{{ asset('images/logo-v1.png') }}"  class="me-2" height="70" alt="{{ asset('images/no-image.png') }}">
             </a>
+
             <a class="navbar-brand" href="{{ url('/') }}" style="font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif">
                 Create Post
             </a>
@@ -34,6 +35,8 @@
                     <span class="nav-item nav-text">User</span>
                 @elseif ($role == 1)
                     <span class="nav-item nav-text">Admin</span>
+                @elseif ($role >= 2)
+                    <span class="nav-item nav-text">404</span>
                 @endif
                     
                 </li>
