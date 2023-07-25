@@ -30,6 +30,7 @@
         <div class="row mt-4">
             @foreach ($media as $item)
                 <div class="col-md-4 mb-4">
+                    <!-- Display the media item (image or video) -->
                     @if ($item->type === 'picture')
                         <img src="{{ asset('uploads/' . $item->filename) }}" alt="{{ $item->title }}" class="img-fluid">
                     @else
@@ -38,14 +39,25 @@
                             Your browser does not support the video tag.
                         </video>
                     @endif
+        
+                    <!-- Display the media title -->
                     <h5 class="mt-2">{{ $item->title }}</h5>
-                    <form action="{{ route('media.destroy', $item) }}" method="post">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
-                    </form>
+        
+                    <!-- Buttons for Edit and Delete -->
+                    <div class="d-flex">
+                        <!-- Edit button -->
+                        <a href="{{ route('media.edit', $item) }}" class="btn btn-primary me-2">Edit</a>
+                        
+                        <!-- Delete button -->
+                        <form action="{{ route('media.destroy', $item) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </div>
                 </div>
             @endforeach
         </div>
+        
     </div>
 @endsection
