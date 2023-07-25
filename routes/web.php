@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MediaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,9 @@ Route::get('/home', function () {
 Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('');
+
+
+Route::get('/media', [MediaController::class, 'index'])->name('media.index');
+Route::post('/media', [MediaController::class, 'store'])->name('media.store');
+Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.destroy');
+
