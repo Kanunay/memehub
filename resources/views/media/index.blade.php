@@ -11,19 +11,24 @@
             @csrf
             <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
-                <input type="text" name="title" class="form-control" required>
+                <input type="text" name="title" id="title" class="form-control" required>
             </div>
             <div class="mb-3">
                 <label for="type" class="form-label">Type</label>
-                <select name="type" class="form-control" required>
+                <select name="type" id="type" class="form-select" required>
                     <option value="picture">Picture</option>
                     <option value="video">Video</option>
                 </select>
             </div>
             <div class="mb-3">
                 <label for="file" class="form-label">File</label>
-                <input type="file" name="file" class="form-control" required>
+                <input type="file" name="file" id="file" class="form-control" required>
             </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea name="description" id="description" class="form-control"></textarea>
+            </div>
+            <input type="hidden" name="user_id" value="{{ Auth::id() }}"> <!-- Add the hidden input for user_id -->
             <button type="submit" class="btn btn-primary">Upload</button>
         </form>
 
@@ -39,10 +44,12 @@
                             Your browser does not support the video tag.
                         </video>
                     @endif
-        
+                        
                     <!-- Display the media title -->
                     <h5 class="mt-2">{{ $item->title }}</h5>
-        
+                        
+                    {{-- Description --}}
+                    <h5 class="mt-2">{{ $item->description }}</h5>
                     <!-- Buttons for Edit and Delete -->
                     <div class="d-flex">
                         <!-- Edit button -->
