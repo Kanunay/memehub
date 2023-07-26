@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MediaController;
+use App\Http\Controllers\HomeController;
 
 
 Route::get('/home', function () {
@@ -21,3 +22,5 @@ Route::post('/media', [MediaController::class, 'store'])->name('media.store');
 Route::delete('/media/{media}', [MediaController::class, 'destroy'])->name('media.destroy');
 Route::get('/media/{media}/edit', [MediaController::class, 'edit'])->name('media.edit');
 Route::put('/media/{media}', [MediaController::class, 'update'])->name('media.update');
+
+Route::get('/', [HomeController::class, 'index'])->name('home');
