@@ -28,13 +28,18 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea name="description" id="description" class="form-control"></textarea>
             </div>
-            <input type="hidden" name="user_id" value="{{ Auth::id() }}"> <!-- Add the hidden input for user_id -->
+            @php
+                    $number_user = Auth::user()->role_as;
+            @endphp
+            <input type="hidden" name="user_id" value="$number_user"> <!-- Add the hidden input for user_id -->
             <button type="submit" class="btn btn-primary">Upload</button>
         </form>
 
         <div class="row mt-4">
             @foreach ($media as $item)
                 <div class="col-md-4 mb-4">
+                    <!-- Display the media title -->
+                    <h5 class="mt-2">{{ $item->title }}</h5>
                     <!-- Display the media item (image or video) -->
                     @if ($item->type === 'picture')
                         <img src="{{ asset('uploads/' . $item->filename) }}" alt="{{ $item->title }}" class="img-fluid">
@@ -44,9 +49,6 @@
                             Your browser does not support the video tag.
                         </video>
                     @endif
-                        
-                    <!-- Display the media title -->
-                    <h5 class="mt-2">{{ $item->title }}</h5>
                         
                     {{-- Description --}}
                     <h5 class="mt-2">{{ $item->description }}</h5>

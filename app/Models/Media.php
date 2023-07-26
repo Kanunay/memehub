@@ -10,6 +10,6 @@ class Media extends Model
     use HasFactory;
 
     // app/Models/Media.php
-    protected $fillable = ['title', 'type', 'filename', 'description'];
+    protected $fillable = ['user_id', 'title', 'type', 'filename', 'description'];
 
 }
