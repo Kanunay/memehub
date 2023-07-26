@@ -9,5 +9,7 @@ class Media extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'type', 'filename'];
+    // app/Models/Media.php
+    protected $fillable = ['title', 'type', 'filename', 'description'];
+
 }
